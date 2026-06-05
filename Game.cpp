@@ -114,6 +114,18 @@ void Game::CheckCollision()
 	{
 		ball.y_velocity *= -1;
 	}
+	if (brick.empty())
+	{
+		ball.x_velocity = 0;
+		ball.y_velocity = 0;
+		Console::WordWrap(20, 15,ConsoleColor::Green, "VICTORY! Press 'R' to Reset");
+	}
 
 	// TODO #7 - If ball touches bottom of window, pause ball and display (render) defeat text with R to reset
+	if (ball.y_position >= Console::WindowHeight())
+	{
+		ball.x_velocity = 0;
+		ball.y_velocity = 0;
+		Console::WordWrap(20, 15, 40, "DEFEAT! Press 'R' to Reset");
+	}
 }
