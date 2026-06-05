@@ -12,7 +12,7 @@ class Game
 	std::vector<Box> brick;
 
 public:
-	Game() : brick(5) {};
+	Game();
 	bool Update();
 	void Render() const;
 	void Reset();
